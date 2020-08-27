@@ -2,6 +2,23 @@ const deliveryTest = require('ava');
 const {
   deliveryDate
 } = require('../src/delivery');
-deliveryTest('foo', t => {
+
+
+
+deliveryTest('delivery case 1. ', t => {
+  // given
+  const isRush = true;
+  const anOrder = {
+    "deliveryState": "MA",
+    "placeOn": null,
+    };
+  plusDays = (deliveryTime) => {
+    return deliveryTime;
+  }
+
+  // when
+  let result = deliveryDate(anOrder, isRush);
+  // then
+  t.is(result, 2);
   t.pass();
 });
