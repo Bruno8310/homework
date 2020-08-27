@@ -18,6 +18,7 @@ const history = [
         profit: 7,
     },
 ];
+
 function voyageRisk(voyage) {
     let result = 1;
     if (voyage.length > 4) {
@@ -53,30 +54,22 @@ function captainHistoryRisk(voyage, history) {
 
 function voyageProfitFactor(voyage, history) {
     let result = 2;
-    if (voyage.zone === 'china') {
+    if (voyage.zone === 'china' || voyage.zone === 'east-indies') {
         result += 1;
     }
-    if (voyage.zone === 'east-indies') {
-        result += 1;
-    }
+
     if (voyage.zone === 'china' && hasChina(history)) {
         result += 3;
-        if (history.length > 10) {
-            result += 1;
+
+        if (voyage.length > 12 && voyage.length <= 18) {
+            result += 2;
         }
-        if (voyage.length > 12) {
-            result += 1;
-        }
-        if (voyage.length > 18) {
-            result -= 1;
-        }
+        
     } else {
-        if (history.length > 8) {
+        if (history.length > 8 && voyage.length <= 14) {
             result += 1;
         }
-        if (voyage.length > 14) {
-            result -= 1;
-        }
+
     }
     return result;
 }
@@ -96,6 +89,6 @@ function rating(voyage, history) {
 const myRating = rating(voyage, history);
 console.log(`myRating: ${myRating}`);
 
-module.exports = {rating};
+module.exports = {rating, voyageRisk, voyageProfitFactor};
 
 
