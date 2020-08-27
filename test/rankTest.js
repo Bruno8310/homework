@@ -47,4 +47,29 @@ rankTest('rank case 2. given voyage history when use voyageProfitFactor then ret
   // then
   t.is(result, 8);
 
+});
+rankTest('rank case 3. given voyage history when use rating method then return B', t => {
+   // given
+  const voyage = {
+    zone: 'china',
+    length: 16,
+  };
+  const history = [{
+      zone: 'east-indies',
+      profit: 5,
+    }, {
+      zone: 'west-indies',
+      profit: 15,
+    }, {
+      zone: 'china',
+      profit: -2,
+    },
+    {
+      zone: 'west-africa',
+      profit: 7,
+    },
+  ];
+  // when
+  let result = rating(voyage, history);
+  t.is(result, 'A');
 })

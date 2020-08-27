@@ -21,11 +21,9 @@ const history = [
 
 function voyageRisk(voyage) {
     let result = 1;
-    if (voyage.length > 4) {
-        result += 2;
-    }
+
     if (voyage.length > 8) {
-        result += voyage.length - 8;
+        result += voyage.length - 6;
     }
     if ([
         'china',
@@ -76,8 +74,11 @@ function voyageProfitFactor(voyage, history) {
 
 function rating(voyage, history) {
     const vpf = voyageProfitFactor(voyage, history);
+    console.log("vpf===="+vpf);
     const vr = voyageRisk(voyage);
+    console.log("vr====="+vr);
     const chr = captainHistoryRisk(voyage, history);
+    console.log("chr========="+chr);
     if (vpf * 3 > (vr + chr * 2)) {
         return 'A';
     } else {
