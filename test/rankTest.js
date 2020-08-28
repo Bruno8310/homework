@@ -153,4 +153,28 @@ rankTest('rank case 6. given voyage and history when use voyageProfitFactor meth
 
   // then
   t.is(result, 2)
-})
+});
+rankTest('rank case 7. given voyage and history when use voyageProfitFactor method then return 3', t => {
+  // given
+  const voyage = {
+    zone: 'east-indies',
+    length: 16,
+  };
+  const history = [{
+    zone: 'east-indies',
+    profit: 5,
+  }, {
+    zone: 'west-indies',
+    profit: 15,
+  },
+  {
+    zone: 'west-africa',
+    profit: 7,
+  },
+];
+  // when
+  let result = voyageProfitFactor(voyage, history);
+
+  // then
+  t.is(result, 3)
+});
