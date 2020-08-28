@@ -20,7 +20,7 @@ function calculateDeliveryTimeWithIsRushTrue(anOrder) {
   return anOrder.placedOn.plusDays(1 + deliveryTime);
 }
 
-function calculateDeliveryTimeWithIsRushFalse(params) {
+function calculateDeliveryTimeWithIsRushFalse(anOrder) {
   let deliveryTime;
   if ([
       'MA',
