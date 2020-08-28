@@ -71,11 +71,8 @@ function voyageProfitFactor(voyage, history) {
 
 function rating(voyage, history) {
     const vpf = voyageProfitFactor(voyage, history);
-    console.log("vpf===="+vpf);
     const vr = voyageRisk(voyage);
-    console.log("vr====="+vr);
     const chr = captainHistoryRisk(voyage, history);
-    console.log("chr========="+chr);
     if (vpf * 3 > (vr + chr * 2)) {
         return 'A';
     } else {

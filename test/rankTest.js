@@ -103,7 +103,7 @@ rankTest('rank case 4. given history has china when use haschina method then ret
   t.is(result, true); 
 });
 
-rankTest('captainHistoryRisk. given voyage and history when use captainHistoryRisk method then return 4', t => {
+rankTest('rank case 5. captainHistoryRisk. given voyage and history when use captainHistoryRisk method then return 4', t => {
   // given
   const voyage = {
     zone: 'china',
