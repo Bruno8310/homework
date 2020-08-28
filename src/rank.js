@@ -87,6 +87,6 @@ function rating(voyage, history) {
 const myRating = rating(voyage, history);
 console.log(`myRating: ${myRating}`);
 
-module.exports = {rating, voyageRisk, voyageProfitFactor, hasChina};
+module.exports = {rating, captainHistoryRisk ,voyageRisk, voyageProfitFactor, hasChina};
 
 
