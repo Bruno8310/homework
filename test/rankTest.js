@@ -3,7 +3,8 @@ const rankTest = require('ava');
 const {
   rating,
   voyageRisk,
-  voyageProfitFactor
+  voyageProfitFactor,
+  hasChina
 } = require('../src/rank');
 
 rankTest('rank case 1. given voyage when use voyageRisk method then return 5', t => {
@@ -49,7 +50,7 @@ rankTest('rank case 2. given voyage history when use voyageProfitFactor then ret
 
 });
 rankTest('rank case 3. given voyage history when use rating method then return B', t => {
-   // given
+  // given
   const voyage = {
     zone: 'china',
     length: 16,
@@ -72,4 +73,27 @@ rankTest('rank case 3. given voyage history when use rating method then return B
   // when
   let result = rating(voyage, history);
   t.is(result, 'A');
-})
+});
+
+rankTest('rank case 4. given history has china when use haschina method then return true', t => {
+  // given
+  const history = [{
+      zone: 'east-indies',
+      profit: 5,
+    }, {
+      zone: 'west-indies',
+      profit: 15,
+    }, {
+      zone: 'china',
+      profit: -2,
+    },
+    {
+      zone: 'west-africa',
+      profit: 7,
+    },
+  ];
+  // when
+  let result = hasChina(history);
+  // then
+  t.is(result, true); 
+});

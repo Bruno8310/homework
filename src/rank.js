@@ -58,16 +58,13 @@ function voyageProfitFactor(voyage, history) {
 
     if (voyage.zone === 'china' && hasChina(history)) {
         result += 3;
-
         if (voyage.length > 12 && voyage.length <= 18) {
             result += 2;
-        }
-        
+        }   
     } else {
         if (history.length > 8 && voyage.length <= 14) {
             result += 1;
         }
-
     }
     return result;
 }
@@ -90,6 +87,6 @@ function rating(voyage, history) {
 const myRating = rating(voyage, history);
 console.log(`myRating: ${myRating}`);
 
-module.exports = {rating, voyageRisk, voyageProfitFactor};
+module.exports = {rating, voyageRisk, voyageProfitFactor, hasChina};
 
 
