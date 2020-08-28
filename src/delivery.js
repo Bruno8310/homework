@@ -39,5 +39,8 @@ function calculateDeliveryTimeWithIsRushFalse(params) {
   return anOrder.placedOn.plusDays(2 + deliveryTime);
 }
 module.exports = {
-  deliveryDate
+  deliveryDate,
+  calculateDeliveryTimeWithIsRushTrue,
+  calculateDeliveryTimeWithIsRushFalse
+
 };
