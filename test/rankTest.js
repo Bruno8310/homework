@@ -261,3 +261,17 @@ rankTest('rank case 9. given voyage and history when use voyageProfitFactor meth
   // then
   t.is(result, 3)
 });
+
+rankTest('rank case 10. given voyage when use voyageRisk method then return 9', t => {
+  // given
+  const voyage = {
+    zone: 'china',
+    length: 10,
+  };
+
+  // when
+  let result = voyageRisk(voyage);
+
+  // then
+  t.is(result, 9);
+});
