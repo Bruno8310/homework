@@ -10,15 +10,15 @@ deliveryTest('delivery case 1. ', t => {
   const isRush = true;
   const anOrder = {
     "deliveryState": "MA",
-    "placeOn": null,
-    };
-  plusDays = (deliveryTime) => {
-    return deliveryTime;
-  }
+    "placedOn": {
+      "plusDays": function plusDays(deliveryTime) {
+        return deliveryTime;
+      }
+    },
+  };
 
   // when
   let result = deliveryDate(anOrder, isRush);
   // then
   t.is(result, 2);
-  t.pass();
 });
